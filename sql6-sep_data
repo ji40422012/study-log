@@ -1,0 +1,266 @@
+DROP DATABASE IF EXISTS mall;
+CREATE DATABASE mall;
+USE mall;
+
+CREATE TABLE t_order(
+id INT(5) PRIMARY KEY AUTO_INCREMENT,
+userNo INT(5) NOT NULL,
+productNo INT(5) NOT NULL
+);
+SELECT * FROM t_order;
+
+CREATE TABLE t_user(
+id INT(5) PRIMARY KEY AUTO_INCREMENT,
+userId CHAR(200) NOT NULL,
+userPw CHAR(200) NOT NULL,
+userName CHAR(50) NOT NULL,
+addr CHAR(200) NOT NULL
+);
+SELECT * FROM t_user;
+
+CREATE TABLE t_product(
+id INT(5) PRIMARY KEY AUTO_INCREMENT,
+pname CHAR(100) NOT NULL,
+price INT(10) NOT NULL
+);
+SELECT * FROM t_product;
+
+##t_product
+
+INSERT INTO t_product
+SET pname = '운동화',
+price = 1000000;
+
+INSERT INTO t_product
+SET pname = '코트',
+price = 100000;
+
+INSERT INTO t_product
+SET pname = '반바지',
+price = 30000;
+
+INSERT INTO t_product
+SET pname = '스커트',
+price = 15000;
+
+INSERT INTO t_product
+SET pname = '코트',
+price = 100000;
+
+INSERT INTO t_product
+SET pname = '티셔츠',
+price = 9000;
+
+INSERT INTO t_product
+SET pname = '운동화',
+price = 200000;
+
+INSERT INTO t_product
+SET pname = '모자',
+price = 30000;
+
+SELECT * FROM t_product;
+################################
+INSERT INTO t_user
+SET userId = 'user1',
+userPw = 'pass1',
+userName = '손흥민',
+addr = '런던';
+
+INSERT INTO t_user
+SET userId = 'user2',
+userPw = 'pass2',
+userName = '설현',
+addr = '서울';
+
+INSERT INTO t_user
+SET userId = 'user3',
+userPw = 'pass3',
+userName = '원빈',
+addr = '대전';
+
+INSERT INTO t_user
+SET userId = 'user4',
+userPw = 'pass4',
+userName = '송혜교',
+addr = '대구';
+
+INSERT INTO t_user
+SET userId = 'user5',
+userPw = 'pass5',
+userName = '소지섭',
+addr = '부산';
+
+INSERT INTO t_user
+SET userId = 'user6',
+userPw = 'pass6',
+userName = '김지원',
+addr = '울산';
+SELECT * FROM t_user;
+###################################
+
+INSERT INTO t_order
+SET userNo = 1,
+productNo = 1;
+
+INSERT INTO t_order
+SET userNo = 2,
+productNo = 2;
+
+INSERT INTO t_order
+SET userNo = 3,
+productNo = 3;
+
+INSERT INTO t_order
+SET userNo = 4,
+productNo = 4;
+
+INSERT INTO t_order
+SET userNo = 5,
+productNo = 5;
+
+INSERT INTO t_order
+SET userNo = 6,
+productNo = 6;
+
+INSERT INTO t_order
+SET userNo = 6,
+productNo = 7;
+
+INSERT INTO t_order
+SET userNo = 1,
+productNo = 5;
+
+INSERT INTO t_order
+SET userNo = 4,
+productNo = 4;
+
+INSERT INTO t_order
+SET userNo = 1,
+productNo = 1;
+
+INSERT INTO t_order
+SET userNo = 5,
+productNo = 8;
+SELECT * FROM t_order;
+
+# 1. 손흥민(userName)의 주문 개수(COUNT)는? ???
+SELECT * FROM t_user;
+SELECT * FROM t_user WHERE userName='손흥민'; #e단서: t_user.userName='손흥민'/id=1
+SELECT COUNT(*) FROM t_order WHERE userNo = 1; #t_user.id=t_order.userNo
+
+SELECT t_order.*, t_user.* 
+FROM t_order INNER JOIN t_user
+ON t_order.userNo = t_user.id
+WHERE t_user.userName ='손흥민'
+
+SELECT COUNT(*)
+FROM t_order INNER JOIN t_user
+ON t_order.userNo = t_user.id
+WHERE t_user.userName ='손흥민'
+
+	SELECT t_user.userName, COUNT(t_order.id) AS '주문개수'   #t_order.id = 건수
+	FROM t_user JOIN t_order ON t_user.id = t_order.userNo   #고객+주문, 고객의id=주문의 주문자
+	WHERE t_user.userName = '손흥민' GROUP BY t_user.userName;#고객명 손홍민일때, 고객며을 묶어 
+
+# 2. 손흥민이 산 상품은? ???
+## 손흥민(고객)이 : t_user.userName='손흥민' -> t_user.id 확인 : 
+## 산(t_order) 상품: t_order.productNo = t_product.id -> t_product.pname )
+
+SELECT * FROM t_user;
+SELECT * FROM t_user 
+WHERE userName = '손흥민'; #단서: t_user.userName='손흥민' / id=1
+SELECT * FROM t_order WHERE userNo = 1; # 단서: userNo =1=손흥민 productNo = 1, 5, 1
+SELECT * FROM t_product WHERE id = 1 OR id = 5; # 동일 WHERE id in (1,5)
+SELECT pname FROM t_product WHERE id = 1 OR id = 5;
+
+#산 상품(t_product.pname)
+SELECT t_product.pname #테이들 다 보고싶으면 *
+FROM t_order INNER JOIN t_user
+ON t_order.userNo = t_user.id
+
+JOIN t_product
+ON t_product.id = t_order.productNo
+
+WHERE t_user.userName ='손흥민';
+
+
+	SELECT t_user.userName, t_product.pname #고객.고객이름, 제품.제품명 을 골라 
+	FROM t_user JOIN t_order                #고객.+order. (고객이 주문했는지)
+	ON t_user.id = t_order.userNo           #고객.id = 주문.고객번호 일때
+
+	JOIN t_product  			# +제품.
+	ON t_order.productNo = t_product.id	#주문.제품번호 = 제품.id
+	WHERE t_user.userName = '손흥민';	#누구? 사용자가 손홍민일때
+
+# 3. 스커트(pname)를 산(order) 사람(userName)은? ???
+SELECT * FROM t_order;
+SELECT * FROM t_user;
+SELECT * FROM t_product;
+
+SELECT * FROM t_product WHERE pname = '스커트';
+SELECT * FROM t_order WHERE productNo = 4;
+SELECT usename FROM t_user WHERE id = 4;
+
+
+SELECT * FROM t_product;
+SELECT * FROM t_product WHERE pname = '스커트'; # t_product.pname='스커트' / id=4
+SELECT * FROM t_order WHERE productNo = 4; # userNo = 4, 4
+SELECT * FROM t_user WHERE id = 4;
+
+#산 사람(t_user.username)
+SELECT t_user.username #테이들 다 보고싶으면 *
+FROM t_order INNER JOIN t_user
+ON t_order.userNo = t_user.id
+
+JOIN t_product
+ON t_product.id = t_order.productNo
+
+WHERE t_product.pname ='스커트';
+
+	SELECT t_product.pname, t_user.userName  
+	FROM t_user JOIN t_order  
+	ON t_user.id = t_order.userNo
+
+	JOIN t_product 
+	ON t_order.productNo = t_product.id
+	WHERE t_product.pname = '스커트';
+
+# 4. 가장 많이 주문한 사람의 아이디와 이름, 주문개수는? ???
+SELECT * FROM t_order;
+SELECT * FROM t_user;
+SELECT * FROM t_product;
+
+SELECT userNo FROM t_order; #이걸 세자
+SELECT userNo, COUNT(userNo) FROM t_order; 
+SELECT userNo, COUNT(userNo) FROM t_order GROUP BY userNo; 
+SELECT userNo, COUNT(userNo) FROM t_order GROUP BY userNo ORDER BY COUNT(userNo); 
+SELECT userNo, COUNT(userNo) FROM t_order GROUP BY userNo ORDER BY COUNT(userNo) DESC LIMIT 1; 
+SELECT userId, userName FROM t_user WHERE id = 1;
+
+SELECT *#####################################
+FROM t_order INNER JOIN t_user ON t_order.userNo = t_user.id
+INNER JOIN t_product ON t_order.productNo = t_product.id
+GROUP BY t_user.id
+ORDER BY COUNT(*) DESC LIMIT 1;
+
+	SELECT t_user.userId,t_user.userName, COUNT(t_order.id) AS '주문개수'
+	FROM t_user JOIN t_order ON t_user.id = t_order.userNo
+	GROUP BY t_user.id, t_user.userId, t_user.userName
+	ORDER BY '주문개수' 
+	DESC LIMIT 1;
+
+# 5. 소지섭(userName)이 사용한 총 금액은? ???
+SELECT * FROM t_order;
+SELECT * FROM t_user;
+SELECT * FROM t_product;
+SELECT * FROM t_user WHERE userName '소지섭';
+SELECT * FROM t_order WHERE userNo =5;
+SELECT SUM(price) FROM t_product WHERE id IN (5,8);
+
+	SELECT t_user.userName, SUM(t_product.price) AS '총금액'
+	FROM t_user JOIN t_order ON t_user.id = t_order.userNo
+
+	JOIN t_product ON t_order.productNo = t_product.id
+	WHERE t_user.userName = '소지섭'
+	GROUP BY t_user.userName;
