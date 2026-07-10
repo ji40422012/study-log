@@ -1,0 +1,89 @@
+# a6 DB 삭제/생성/선택
+DROP DATABASE IF EXISTS a6;
+CREATE DATABASE a6;
+USE a6;
+
+# 부서(홍보, 기획)
+CREATE TABLE dept(
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	regDate DATETIME NOT NULL,
+	`name` CHAR(100) NOT NULL UNIQUE
+);
+
+## 부서 테이블에 홍보부서 기획부서 추가)
+INSERT INTO dept SET regDate=NOW(), `name`='홍보'; #id는 자동생성(AUTO_INCREMENT)
+INSERT INTO dept SET regDate=NOW(), `name`='기획';
+
+# 사원(홍길동/홍보/5000만원, 홍길순/홍보/6000만원, 임꺽정/기획/4000만원)
+CREATE TABLE emp(
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	regDate DATETIME NOT NULL,
+	`name` CHAR(100) NOT NULL UNIQUE,
+	depName CHAR(100) NOT NULL,
+	annl INT
+);
+INSERT INTO emp SET regDate=NOW(), `name`='홍길동', depName='홍보', annl=5000;
+INSERT INTO emp SET regDate=NOW(), `name`='홍길순', depName='홍보', annl=6000;
+INSERT INTO emp SET regDate=NOW(), `name`='임꺽정', depName='기획', annl=4000;
+
+# 사원 수 출력
+SELECT COUNT(*)FROM emp WHERE id;
+
+# 가장 큰 사원 번호 출력
+SELECT * FROM emp ORDER BY id DESC LIMIT 1;
+SELECT MAX(id) FROM emp;
+
+# 가장 고액 연봉
+SELECT * FROM emp ORDER BY annl DESC LIMIT 1;
+SELECT MAX(annl);
+
+# 가장 저액 연봉
+SELECT * FROM emp ORDER BY annl ASC LIMIT 1;
+SELECT MIN(annl);
+
+# 회사에서 1년 고정 지출(인건비)
+SELECT SUM(annl);
+
+# 부서별(GROUP BY depName), 1년 고정 지출(인건비, annl)
+SELECT depName, SUM(annl) FROM emp GROUP BY depName;
+
+# 부서별, 최고연봉
+SELECT depName, annl FROM emp GROUP BY depName ORDER BY annl DESC LIMIT 1 ;
+SELECT depName, MAX(annl) FROM emp;
+
+# 부서별, 최저연봉
+SELECT depName, annl FROM emp GROUP BY depName ORDER BY annl ASC LIMIT 1 ;
+SELECT depName, MIN(annl) FROM emp;
+
+# 부서별, 평균연봉
+SELECT depName, annl FROM emp GROUP BY depName ORDER BY annl AVG;
+SELECT depName, AVG(annl) FROM emp GROUP BY depName;
+
+# 부서별GROUP BY depName, 부서명depName, 사원리스트`name`, 평균연봉, 최고연봉, 최소연봉, 사원수 
+## V1(조인 안한 버전)
+SELECT depName, `name`, AVG(annl), MAX(annl), MIN(annl), COUNT(*)
+FROM emp GROUP BY depName;
+
+## V2(조인해서 부서명까지 나오는 버전)
+SELECT d.`name`, AVG(e.annl) , MAX(e.annl) , MIN(e.annl), COUNT(e.id)
+FROM dept d JOIN emp e
+ON d.`name` = e.depName GROUP BY d.`name`;
+
+## V3(V2에서 평균연봉이 5000이상인 부서로 추리기)
+SELECT d.name, AVG(e.annl)>=5000 FROM dept d JOIN emp e
+ON d.`name` = e.depName GROUP BY d.`name`;
+#수업 영상 보면 변수값 다르고 풀이도 달라-확인하기
+/*
+단일 컬럼의 집계
+중첩 x, 2차원 x, 3차원 x
+그룹핑 된 집합에 대한 단일 연산 o
+
+1. 그룹 함수는 테이블에서 데이터를 따로 뽑아서 분류통에 넣는다(group by)
+2. 각 분류 통 안에서만 따로따로 집계(합, 평균, 최댓값...)를 수행
+
+mysql 기준
+테이블 스캔 -> 그룹핑 -> 그룹별로 집계 -> 반환(return)
+
+만약에 기술면접에서 그룹함수의 작동원리가 뭐야? 라고 물어보면?
+- 그룹핑 후 그룹별로 메모리 버퍼에 값을 누적하고 집계하는 원리
+*/
