@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>당첨자는 !</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #roller {
+      font-size: 36px;
+      font-weight: bold;
+      border: 3px solid #444;
+      padding: 20px 40px;
+      display: inline-block;
+      min-width: 200px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 25px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="roller">뭘먹을까?!</div>
+  <br>
+  <button>멈추기</button>
+  <script>
+    const names =["엄마는외계인","아몬드봉봉","민트초콜릿칩","레인보우샤베트","뉴욕치즈케이크","바닐라","체리쥬빌레","자모카아몬드훠지","이상한나라의솜사탕","소금우유","오레오쿠키앤크림","그린티","초콜릿","애플민트","봄날의곰","카페오레크런치","두바이에서온엄마는외계인","아빠는딸바봉","코튼캔디크런치","후르츠어드벤처"];
+  </script>
+</body>
+</html>
