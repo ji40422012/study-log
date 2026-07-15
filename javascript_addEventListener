@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript 작성 위치</title>
+
+    <style>
+        #myimg {
+            width: 300px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>마우스를 이미지에 올려보세요</h3>
+
+    <!-- 마우스 이벤트를 적용할 이미지 -->
+    <img
+        id="myimg"
+        src="https://picsum.photos/300/200"
+        alt="예제 이미지"
+    >
+
+    <!-- JavaScript 결과가 출력될 영역 -->
+    <div id="message"></div>
+
+    <script>
+        console.log("콘솔 출력");
+
+        // HTML 요소 가져오기
+        const obj = document.getElementById("myimg");
+        const message = document.getElementById("message");
+
+        console.log(obj);
+
+        // 문자열 자료형
+        let nm = "길동";
+        console.log(nm, typeof nm);
+
+        // 숫자 자료형
+        let num = 1;
+        num++;
+        console.log(num, typeof num);
+
+        // 사용자 이름 입력
+        const userName = prompt("이름을 입력하세요");
+
+        // 취소 버튼을 누르지 않았을 경우
+        if (userName !== null) {
+            if (confirm(userName + "님 맞습니까?")) {
+                message.innerHTML =
+                    "<h1>" + userName + "님 환영합니다.</h1>";
+            } else {
+                message.innerHTML =
+                    "<h1>" + userName + "님 다시 입력하세요.</h1>";
+            }
+        } else {
+            message.innerHTML = "<h1>이름 입력이 취소되었습니다.</h1>";
+        }
+
+        // 이미지에 마우스를 올렸을 때
+        obj.addEventListener("mouseover", function () {
+            message.innerHTML =
+                "<h1>" + (userName || "사용자") + "님, 이미지에 마우스를 올렸습니다.</h1>";
+        });
+
+        // 이미지에서 마우스가 벗어났을 때
+        obj.addEventListener("mouseout", function () {
+            message.innerHTML =
+                "<h1>마우스가 이미지에서 벗어났습니다.</h1>";
+        });
+    </script>
+</body>
+</html>
