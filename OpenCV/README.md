@@ -14,3 +14,9 @@
   - Edge(윤곽선 검출)
   - Sharpen(선명화)
   - Kernel과 `cv2.filter2D()` 활용
+
+- [03. 동영상 프레임 추출](./03_video_frame_extraction.md)
+  - `VideoCapture()`를 이용한 영상 읽기
+  - 프레임(Frame) 단위 처리
+  - 일정 간격 프레임 저장
+  - `imwrite()`를 이용한 이미지 저장
