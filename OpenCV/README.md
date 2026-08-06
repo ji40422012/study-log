@@ -26,3 +26,11 @@
   - `blur()`를 이용한 실시간 필터 적용
   - `waitKey()`를 이용한 키 입력 처리
   - `putText()`를 이용한 모드 표시
+
+- [05. 자동차 이미지 윤곽선 검출](./05_contour_detection.md)
+  - Grayscale 변환
+  - Gaussian Blur를 이용한 노이즈 제거
+  - Canny Edge를 이용한 경계 검출
+  - `findContours()`를 이용한 윤곽선 추출
+  - `contourArea()`를 이용한 작은 윤곽선 제거
+  - `drawContours()`를 이용한 결과 표시
