@@ -20,3 +20,9 @@
   - 프레임(Frame) 단위 처리
   - 일정 간격 프레임 저장
   - `imwrite()`를 이용한 이미지 저장
+
+- [04. 동영상 필터 제어](./04_video_filter_control.md)
+  - `VideoCapture()`를 이용한 영상 재생
+  - `blur()`를 이용한 실시간 필터 적용
+  - `waitKey()`를 이용한 키 입력 처리
+  - `putText()`를 이용한 모드 표시
