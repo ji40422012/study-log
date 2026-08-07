@@ -1,0 +1,56 @@
+# K-Nearest Neighbors (KNN)
+---
+## Learning Objectives
+- KNN 알고리즘 이해
+- 거리 기반 분류
+- L1 / L2 Distance
+- k(이웃의 개수)
+- Train / Test Split
+- Feature Scaling
+- StandardScaler
+- Pipeline
+- Cross Validation
+- Confusion Matrix
+- 모델 성능 비교
+
+---
+
+## Files
+
+### 📘 basic.py
+- Iris Dataset
+- 데이터 시각화
+- L1 / L2 Distance
+- Train / Test Split
+- KNeighborsClassifier()
+- fit()
+- predict()
+- Accuracy
+- Confusion Matrix
+- k 값 비교
+- 새로운 데이터 예측
+
+---
+
+### 📙 practical.py
+
+**학습 내용**
+- Wine Dataset
+- Feature 분포 확인
+- StandardScaler
+- Scaling 전 / 후 성능 비교
+- Pipeline
+- Cross Validation
+- 최적 k 선택
+- Classification Report
+- Confusion Matrix
+- 모델 저장(Joblib)
+
+---
+
+## Skills
+
+- NumPy
+- Pandas
+- Matplotlib
+- Scikit-learn
