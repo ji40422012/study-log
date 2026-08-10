@@ -1,4 +1,6 @@
 # K-Nearest Neighbors (KNN)
+KNN의 기본 원리
+**거리 계산, Feature Scaling, 최적 k 선택, Cross Validation**
 ---
 ## Learning Objectives
 - KNN 알고리즘 이해
@@ -50,7 +52,16 @@
 
 ## Skills
 
+- Python
 - NumPy
 - Pandas
 - Matplotlib
 - Scikit-learn
+- K-Nearest Neighbors
+- Feature Scaling
+- StandardScaler
+- Pipeline
+- Cross Validation
+- Model Evaluation
+- Joblib
+
