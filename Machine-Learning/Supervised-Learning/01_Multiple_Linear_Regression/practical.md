@@ -1,4 +1,4 @@
-# 실무형 다중선형회귀(Multiple Linear Regression)
+# 다중선형회귀(Multiple Linear Regression)
 
 ## 학습 내용
 (with scikit-learn.load_diabetes)
