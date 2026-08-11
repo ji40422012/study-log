@@ -1,1 +1,172 @@
-random forest
+# Random Forest
+
+여러 개의 Decision Tree를 만들고 예측 결과를 종합하여  
+최종 결과를 결정하는 **Ensemble Learning 모델**
+
+Decision Tree의 단일 모델 구조에서 확장하여  
+Bootstrap Sampling과 Feature Randomness를 이용한 Random Forest의 원리를 학습하고,  
+Pima Indians Diabetes Dataset을 이용하여 교차검증과 모델 튜닝까지 진행
+
+---
+
+## 학습 내용
+
+### Basic
+
+`Loan Approval Dataset`을 이용하여 Random Forest의 기본 원리 학습
+
+- Random Forest
+- Ensemble Learning
+- Decision Tree와 Random Forest 비교
+- Bootstrap Sampling
+- `n_estimators`
+- `max_depth`
+- `max_samples`
+- `max_features`
+- Train / Test Accuracy
+- Classification Report
+- Feature Importance
+
+### Practical
+
+`Pima Indians Diabetes Dataset`을 이용하여 실제 당뇨 분류 모델 구현 및 평가
+
+- 데이터 분포 확인
+- Decision Tree 기준 모델
+- Random Forest
+- Train / Test Split
+- 데이터 분할에 따른 성능 변화
+- Stratified K-Fold
+- Cross Validation
+- Decision Tree / Random Forest 성능 비교
+- GridSearchCV
+- Hyperparameter Tuning
+- Confusion Matrix
+- Precision / Recall / F1
+- False Negative
+- Feature Importance
+
+---
+
+## 구성
+
+```text
+06_Random_Forest/
+├── README.md
+├── 06_basic.ipynb
+├── 06_basic.py
+├── 06_basic.md
+├── 06_practical.py
+├── 06_practical.md
+├── rf_target_distribution.png
+├── rf_feature_histogram.png
+├── rf_glucose_bmi.png
+├── rf_confusion_matrix.png
+└── rf_feature_importance.png
+```
+
+---
+
+## 핵심 원리
+
+Decision Tree는 하나의 Tree를 이용하여 예측하지만  
+Random Forest는 서로 다른 여러 Decision Tree를 생성하고 결과를 종합한다.
+
+```text
+Training Data
+      ↓
+Bootstrap Sampling
+      ↓
+┌────────┬────────┬────────┐
+│ Tree 1 │ Tree 2 │ Tree 3 │ ...
+└────────┴────────┴────────┘
+      ↓
+각 Tree에서 일부 Feature 무작위 선택
+      ↓
+각 Tree의 예측
+      ↓
+결과 종합
+      ↓
+Final Prediction
+```
+
+Random Forest에서는 두 종류의 무작위성이 중요하다.
+
+```text
+max_samples
+→ Tree마다 사용할 Data Sample을 무작위 선택
+
+max_features
+→ 각 Node에서 분할 후보 Feature를 무작위 선택
+```
+
+이를 통해 서로 다른 Tree를 만들고  
+단일 Decision Tree에 대한 의존도를 줄인다.
+
+---
+
+## Basic → Practical
+
+```text
+Decision Tree
+      ↓
+Random Forest 기본 원리
+      ↓
+Bootstrap / Feature Randomness
+      ↓
+Pima Diabetes Dataset
+      ↓
+Decision Tree vs Random Forest
+      ↓
+Cross Validation
+      ↓
+GridSearchCV
+      ↓
+Best Random Forest
+      ↓
+Confusion Matrix
+      ↓
+False Negative 분석
+```
+
+특히 당뇨병 분류에서는 전체 Accuracy뿐 아니라  
+**실제 당뇨 환자를 정상으로 잘못 예측하는 False Negative**도 함께 확인한다.
+
+---
+
+## 주요 Hyperparameter
+
+| Hyperparameter | 역할 |
+|---|---|
+| `n_estimators` | 생성할 Decision Tree 개수 |
+| `max_depth` | 각 Tree의 최대 깊이 |
+| `max_samples` | 각 Tree가 학습할 Sample 크기 |
+| `max_features` | 각 분할에서 사용할 Feature 후보 수 |
+| `min_samples_split` | Node를 분할하기 위한 최소 Sample 수 |
+| `min_samples_leaf` | Leaf Node가 가져야 할 최소 Sample 수 |
+
+Practical에서는 `GridSearchCV`를 이용하여 여러 Hyperparameter 조합을  
+Cross Validation으로 평가하고 더 적절한 설정을 탐색한다.
+
+---
+
+## Decision Tree vs Random Forest
+
+| Decision Tree | Random Forest |
+|---|---|
+| 하나의 Tree | 여러 Decision Tree |
+| 단일 모델 | Ensemble 모델 |
+| 데이터 분할에 민감할 수 있음 | 여러 Tree를 결합하여 변동성 완화 |
+| Tree 구조 해석이 쉬움 | 전체 모델 구조 해석은 상대적으로 어려움 |
+| Feature Importance 확인 가능 | Feature Importance 확인 가능 |
+
+---
+
+## Skills
+
+`Python` `NumPy` `Pandas` `Matplotlib` `Scikit-learn`
+`Random Forest` `Decision Tree` `Ensemble Learning` `Bootstrap Sampling`  
+`Cross Validation` `Stratified K-Fold` `GridSearchCV` `Hyperparameter Tuning`  
+`Classification Report` `Confusion Matrix` `False Negative` `Feature Importance`
+
+---
