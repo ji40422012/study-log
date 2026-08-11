@@ -1,7 +1,7 @@
 # Machine Learning : Learning Roadmap
 ---
 모델의 원리, 전처리, 평가 방법을 학습
-**지도학습, 비지도학습, 추천 시스템 등**
+**지도학습, 비지도학습, 추천 시스템 등**(진행중)
 
 ## 01. Supervised Learning
 정답(Label)이 있는 데이터를 이용하여  
