@@ -128,18 +128,12 @@ X → 대출 승인 여부를 판단할 Feature / y → 실제 대출 승인 여
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
-    test_size=0.2,
-    random_state=42,
-    stratify=y
+    test_size=0.2,   #전체 데이터의 20%를 Test
+    random_state=42, #분할 결과 고정
+    stratify=y       #승인 / 거절 클래스 비율 유지
 )
 ```
 (의사결정나무 동일)
-
-| 옵션 | 의미 |
-|---|---|
-| `test_size=0.2` | 전체 데이터의 20%를 Test로 사용 |
-| `random_state=42` | 분할 결과 고정 |
-| `stratify=y` | 승인 / 거절 클래스 비율 유지 |
 
 ```text
 전체 데이터
@@ -153,30 +147,16 @@ Train 80% / Test  20%
 
 ```python
 model = RandomForestClassifier(
-    n_estimators=200,
-    max_depth=7,
-    max_samples=0.7,
-    max_features="sqrt",
-    random_state=42
+    n_estimators=200,   #Decision Tree 200개 생성
+    max_depth=7,        #각 Tree의 최대 깊이 7
+    max_samples=0.7,    #각 Tree가 사용할 학습 데이터 크기
+    max_features="sqrt",#각 분할에서 사용할 Feature 후보 수("전체 Feature 수의 제곱근 정도")
+    random_state=42     #난수 고정
 )
 ```
-주요 Hyperparameter:
-
-| 옵션 | 의미 |
-|---|---|
-| `n_estimators=200` | Decision Tree 200개 생성 |
-| `max_depth=7` | 각 Tree의 최대 깊이 |
-| `max_samples=0.7` | 각 Tree가 사용할 학습 데이터 크기 |
-| `max_features="sqrt"` | 각 분할에서 사용할 Feature 후보 수 |
-| `random_state=42` | 난수 고정 |
-
 ---
 
 ## 9. n_estimators
-
-```python
-n_estimators=200
-```
 Random Forest에서 생성할 Decision Tree의 개수
 
 ```text
@@ -259,12 +239,7 @@ max_features
 `sqrt`는 각 Node에서 전체 Feature 수의 제곱근 정도를  
 분할 후보 Feature로 사용한다.
 
-예를 들어 Feature가 16개라면:
-
-```text
-sqrt(16) = 4
-```
-
+Feature가 16개라면: sqrt(16) = 4 
 각 분할에서 약 4개의 Feature를 후보로 선택하여  
 그중 좋은 분할 기준을 찾는다.
 
@@ -287,10 +262,6 @@ Feature Randomness
 예측 결과 종합
 ```
 
-방식을 사용한다.
-
-즉,
-
 ```text
 max_samples
 → Tree마다 학습 데이터에 차이를 만듦
@@ -299,7 +270,7 @@ max_features
 → Tree의 분할 과정에도 차이를 만듦
 ```
 
-이를 통해 특정 하나의 Tree에 지나치게 의존하는 문제를 줄인다.
+(특정 하나의 Tree에 지나치게 의존하는 문제를 줄이기 위함)
 
 ---
 
@@ -308,22 +279,12 @@ max_features
 ```python
 max_depth=7
 ```
-
 각 Decision Tree가 성장할 수 있는 최대 깊이를 제한한다.
 
 ```text
-max_depth 작음
-→ Tree 단순
-→ Underfitting 가능
-
-max_depth 큼
-→ Tree 복잡
-→ Train 데이터에 과도하게 적합될 가능성
+max_depth 작음 → Tree 단순 → Underfitting 가능
+max_depth 큼 → Tree 복잡 → Train 데이터에 과도하게 적합될 가능성
 ```
-
-Random Forest도 내부적으로 Decision Tree를 사용하기 때문에  
-Tree의 깊이를 조절할 수 있다.
-
 ---
 
 ## 15. 모델 학습
