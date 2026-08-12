@@ -1,1 +1,77 @@
-boosting
+# Gradient Boosting
+여러 Decision Tree를 **순차적으로 학습**하면서  
+이전 모델의 부족한 부분을 다음 Tree가 보완하는 **Boosting 기반 Ensemble 모델**
+
+---
+
+## 학습 내용
+
+### Basic
+Gradient Boosting의 기본 구조와 주요 Hyperparameter 학습
+- Gradient Boosting / Sequential Learning
+- `GradientBoostingClassifier`
+- `n_estimators`
+- `learning_rate`
+- `max_depth`
+- Cross Validation
+- Random Forest와 Boosting의 차이
+
+### Practical
+Pima Indians Diabetes Dataset을 이용한 Gradient Boosting 실습
+- Train / Test Split
+- `learning_rate`에 따른 성능 비교
+- `n_estimators`에 따른 성능 비교
+- Train / Test Accuracy
+- GridSearchCV
+- Confusion Matrix
+- Precision / Recall / F1-score
+- False Negative
+- Feature Importance
+
+---
+
+## 핵심 개념
+
+```text
+Decision Tree
+      ↓
+이전 모델의 부족한 부분 확인
+      ↓
+다음 Tree가 보완
+      ↓
+반복
+      ↓
+Final Prediction
+```
+
+```text
+Random Forest→ 여러 Tree를 독립적으로 학습→ Bagging
+Gradient Boosting→ 여러 Tree를 순차적으로 학습→ Boosting
+```
+
+`learning_rate`와 `n_estimators`의 균형이 중요하며  
+Train 성능뿐 아니라 Test 및 Cross Validation 성능을 함께 확인한다.
+
+---
+
+## 파일 구성
+
+```text
+07_Boosting/
+├── 07_basic.py
+├── 07_basic.md
+├── 07_practical.py
+├── 07_practical.md
+└── README.md
+```
+
+- `07_basic.py` : Gradient Boosting 기본 코드
+- `07_basic.md` : 기본 개념 정리
+- `07_practical.py` : Pima Diabetes 추가 실습
+- `07_practical.md` : 실습 과정과 결과 해석
+
+---
+
+## Skills
+`Gradient Boosting` `Ensemble Learning` `Cross Validation`  
+`GridSearchCV` `Hyperparameter Tuning` `Model Evaluation`
