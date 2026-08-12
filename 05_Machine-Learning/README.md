@@ -1,7 +1,16 @@
 # Machine Learning : Learning Roadmap
 ---
-모델의 원리, 전처리, 평가 방법을 학습
-**지도학습, 비지도학습, 추천 시스템 등**(진행중)
+데이터의 패턴을 학습하여 예측하거나 구조를 발견하는 **Machine Learning**
+
+```text
+Machine Learning
+├── Supervised Learning
+│   ├── Regression
+│   └── Classification
+│
+└── Unsupervised Learning
+    └── Clustering
+    └──진행예정
 
 ## 01. Supervised Learning
 정답(Label)이 있는 데이터를 이용하여  
@@ -12,10 +21,20 @@ Feature와 Target의 관계를 학습하는 **지도학습**
 - Polynomial Regression
 
 ### Classification
+
 - Logistic Regression
 - K-Nearest Neighbors
-- Decision Tree (예정)
-- Random Forest (예정)
+- Decision Tree
+- Random Forest
+- Gradient Boosting
+
+### Model Evaluation
+
+- Cross Validation
+- Confusion Matrix
+- Precision / Recall / F1-score
+- Hyperparameter Tuning
+- Model Comparison
 
 ```text
 Supervised-Learning/
@@ -23,8 +42,10 @@ Supervised-Learning/
 ├── 02_Polynomial_Regression/
 ├── 03_Logistic_Regression/
 ├── 04_KNN/
-├── 05_Decision_Tree/        # 예정
-└── 06_Random_Forest/        # 예정
+├── 05_Decision_Tree/
+├── 06_Random_Forest/
+├── 07_Boosting/
+└── 08_Model_Comparison/
 ```
 
 #### ✅ 01. Multiple Linear Regression
@@ -165,47 +186,11 @@ Recommender-System/
 
 ---
 
-## 구성
-
-```text
-Machine-Learning/
-│
-├── Supervised-Learning/
-│   ├── 01_Multiple_Linear_Regression/
-│   ├── 02_Polynomial_Regression/
-│   ├── 03_Logistic_Regression/
-│   ├── 04_KNN/
-│   ├── 05_Decision_Tree/        # 예정
-│   └── 06_Random_Forest/        # 예정
-│
-├── Unsupervised-Learning/
-│   └── 01_Clustering/
-│
-└── Recommender-System/
-    └── 01_Content_Based_Filtering/
-```
-
----
-
-## Learning Progress
-
-| Category | Algorithm | Status |
-|---|---|---|
-| Supervised Learning | Multiple Linear Regression | ✅ 완료 |
-| Supervised Learning | Polynomial Regression | ✅ 완료 |
-| Supervised Learning | Logistic Regression | ✅ 완료 |
-| Supervised Learning | K-Nearest Neighbors | ✅ 완료 |
-| Supervised Learning | Decision Tree | ⏳ 예정 |
-| Supervised Learning | Random Forest | ⏳ 예정 |
-| Unsupervised Learning | Clustering | ✅ 학습 |
-| Recommender System | Content-Based Filtering | ✅ 학습 |
 
 ---
 
 ## Skills
 
 `Python` `NumPy` `Pandas` `Matplotlib` `Scikit-learn`
-
-`Regression` `Classification` `Clustering` `Recommendation`
-
-`Feature Scaling` `Pipeline` `Cross Validation` `Model Evaluation`
+`Regression` `Classification` `Ensemble Learning` `Clustering`  
+`Cross Validation` `Model Evaluation` `Hyperparameter Tuning`
