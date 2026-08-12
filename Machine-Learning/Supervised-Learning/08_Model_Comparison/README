@@ -1,1 +1,35 @@
-Model_Comparison
+# Model Comparison
+Pima Indians Diabetes Dataset을 이용하여 분류 모델의 성능을 비교
+---
+
+## 비교 모델
+- Decision Tree
+- Random Forest
+- Gradient Boosting
+- Tuned Random Forest
+
+---
+
+## 학습 내용
+- Stratified K-Fold Cross Validation
+- 모델별 Accuracy 비교
+- Confusion Matrix
+- Precision / Recall / F1-score
+- False Negative 비교
+- Hyperparameter Tuning 결과 비교
+- 평가 지표에 따른 모델 선택
+
+---
+
+## 핵심
+
+```text
+여러 모델 학습
+    ↓
+Cross Validation
+    ↓
+Test 데이터 평가
+    ↓
+Accuracy / Recall / F1 / FN 비교
+    ↓
+문제의 목적에 맞는 모델 선택
