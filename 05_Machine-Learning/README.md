@@ -6,11 +6,12 @@
 Machine Learning
 ├── Supervised Learning
 │   ├── Regression
-│   └── Classification
+│   ├── Classification
+│   └── Model Evaluation
 │
 └── Unsupervised Learning
-    └── Clustering
-    └──진행예정
+    ├── Clustering
+    └── Association Rule
 
 ## 01. Supervised Learning
 정답(Label)이 있는 데이터를 이용하여  
@@ -125,72 +126,73 @@ Supervised-Learning/
 
 ---
 
+#### ✅ 07. Boosting
+
+- Gradient Boosting
+- Sequential Learning
+- Weak Learner
+- Learning Rate
+- n_estimators
+- Random Forest와의 차이
+
+---
+
+#### ✅ 08. Model Comparison
+
+- Decision Tree
+- Random Forest
+- Gradient Boosting
+- Tuned Random Forest
+- Cross Validation
+- Confusion Matrix
+- False Negative
+- Classification Report
+- 모델 성능 비교
+
+---
+
 ## 02. Unsupervised Learning
 
 정답(Label) 없이 데이터에 존재하는  
 패턴이나 구조를 찾는 **비지도학습**
 
-### Clustering
-
-- K-Means Clustering
-- Cluster
-- Centroid
-- Distance
-- Elbow Method
-- Silhouette Score
-- Cluster Visualization
-
 ```text
 Unsupervised-Learning/
-└── 01_Clustering/
+├── 01_Clustering/
+└── 02_Association_Rule/
 ```
 
 #### ✅ 01. Clustering
 
-- K-Means
+- K-Means Clustering
 - Cluster / Centroid
-- 거리 기반 군집화
-- 적절한 Cluster 수 선택
+- Inertia
 - Elbow Method
-- Silhouette Score
-- 군집 결과 시각화
-- 군집별 특징 해석
+- Cluster Visualization
+- StandardScaler
+- DBSCAN
+- eps / min_samples
+- Noise Detection
 
 ---
 
-## 03. Recommender System
+### Association Rule
 
-사용자 또는 아이템의 정보를 이용하여  
-사용자에게 적절한 항목을 추천하는 **추천 시스템**
+#### ✅ 02. Association Rule
 
-### Content-Based Filtering
-
-아이템의 특징을 이용하여  
-사용자가 선호한 아이템과 유사한 아이템을 추천
-
-```text
-Recommender-System/
-└── 01_Content_Based_Filtering/
-```
-
-#### ✅ 01. Content-Based Filtering
-
-- Content-Based Filtering
-- Item Feature
-- Text Vectorization
-- TF-IDF
-- Cosine Similarity
-- Similarity Matrix
-- 유사 아이템 탐색
-- Recommendation
-
----
-
+- Transaction Data
+- Apriori Algorithm
+- Frequent Itemsets
+- Association Rules
+- Support
+- Confidence
+- Lift
+- 구매 패턴 분석
 
 ---
 
 ## Skills
 
-`Python` `NumPy` `Pandas` `Matplotlib` `Scikit-learn`
+`Python` `NumPy` `Pandas` `Matplotlib` `Scikit-learn`  
 `Regression` `Classification` `Ensemble Learning` `Clustering`  
 `Cross Validation` `Model Evaluation` `Hyperparameter Tuning`
