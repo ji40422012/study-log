@@ -25,7 +25,7 @@ study-log/
 - **Database** : PostgreSQL / MIMIC Sample Analysis
 - **Computer Vision** : OpenCV / OCR
 - **Machine Learning** : Supervised / Unsupervised Learning
-- **Text Analysis** : TF-IDF / Text Similarity
+- **Text Analysis** : TF-IDF / Text Similarity / LDA
 - **Recommendation System** : Content-Based Filtering
 - **Deployment** : Flask
 
