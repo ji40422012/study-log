@@ -1,1 +1,19 @@
-README
+# Anomaly Detection
+ **이상치(Outlier)**를 탐지하고 처리
+
+## Learning
+
+* IQR (Interquartile Range)
+* Z-score
+* Outlier Detection
+* Outlier Removal
+* Box Plot
+
+## Files
+
+* `03_anomaly_detection.py` : IQR / Z-score 기반 이상치 탐지
+* `03_anomaly_detection.md` : 개념 및 실습 정리
+
+## Additional Learning
+
+* Isolation Forest
