@@ -12,6 +12,8 @@ Machine Learning
 └── Unsupervised Learning
     ├── Clustering
     └── Association Rule
+    ├── Anomaly Detection
+    └── Dimensionality Reduction
 
 ## 01. Supervised Learning
 정답(Label)이 있는 데이터를 이용하여  
@@ -100,7 +102,7 @@ Supervised-Learning/
 
 ---
 
-#### ⏳ 05. Decision Tree
+#### ✅ 05. Decision Tree
 
 - Decision Tree
 - Node / Branch / Leaf
@@ -113,7 +115,7 @@ Supervised-Learning/
 
 ---
 
-#### ⏳ 06. Random Forest
+#### ✅ 06. Random Forest
 
 - Random Forest
 - Ensemble Learning
@@ -160,6 +162,8 @@ Supervised-Learning/
 Unsupervised-Learning/
 ├── 01_Clustering/
 └── 02_Association_Rule/
+├── Anomaly Detection       
+└── Dimensionality Reduction 
 ```
 
 #### ✅ 01. Clustering
@@ -176,7 +180,6 @@ Unsupervised-Learning/
 
 ---
 
-### Association Rule
 
 #### ✅ 02. Association Rule
 
@@ -190,6 +193,19 @@ Unsupervised-Learning/
 - 구매 패턴 분석
 
 ---
+
+#### ⏳ 03. Anomaly Detection
+
+
+
+---
+
+#### ⏳ 04. Dimensionality Reduction
+
+
+
+---
+
 
 ## Skills
 
