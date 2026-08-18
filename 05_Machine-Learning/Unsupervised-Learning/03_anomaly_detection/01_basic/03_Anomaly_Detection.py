@@ -25,7 +25,7 @@ print(f"이상치 수: {len(outliers)}명")
 # Box Plot: IQR 기준 이상치 위치 확인
 plt.figure(figsize=(8, 3)); plt.boxplot(income, vert=False); plt.title("Annual Income Box Plot")
 plt.xlabel("Annual Income (k$)"); plt.tight_layout()
-plt.savefig("03_income_boxplot.png", dpi=150, bbox_inches="tight")  # md에서 사용할 이미지
+plt.savefig("03_income_boxplot.png", dpi=150, bbox_inches="tight")  
 plt.show()
 
 # Z-score: 평균에서 표준편차 몇 배만큼 떨어져 있는지 계산
@@ -63,7 +63,7 @@ print(f"이상치 개수: {outlier_mask.sum()}")  # True=1이므로 sum()으로 
 # Box Plot: median_house_value의 이상치 확인
 plt.figure(figsize=(8, 3)); plt.boxplot(house_value, vert=False)
 plt.title("Median House Value Box Plot"); plt.xlabel("Median House Value")
-plt.tight_layout(); plt.savefig("03_housing_boxplot.png", dpi=150, bbox_inches="tight")  # md에서 사용할 이미지
+plt.tight_layout(); plt.savefig("03_housing_boxplot.png", dpi=150, bbox_inches="tight") 
 plt.show()
 
 # 이상치를 제외한 정상 데이터
