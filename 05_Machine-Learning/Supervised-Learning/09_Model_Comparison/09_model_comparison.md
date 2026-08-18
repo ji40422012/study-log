@@ -19,7 +19,7 @@ Pima Indians Diabetes Dataset을 이용하여
 | Gradient Boosting | 0.755 |
 | Tuned Random Forest | **0.788** |
 
-![Model Accuracy Comparison](./08_model_accuracy.png)
+![Model Accuracy Comparison](./09_model_accuracy.png)
 
 Cross Validation에서는 **Tuned Random Forest가 78.8%로 가장 높은 평균 정확도**를 보였다.
 
@@ -71,7 +71,7 @@ FN(False Negative)은 **실제 당뇨 환자를 정상으로 잘못 예측한 �
 | Gradient Boosting | 32 | 0.522 | 0.583 |
 | Tuned Random Forest | 33 | 0.507 | 0.581 |
 
-![False Negative Comparison](./08_false_negative.png)
+![False Negative Comparison](./09_false_negative.png)
 
 이번 Test 데이터에서는 **Decision Tree의 FN이 30으로 가장 낮았다.**
 
