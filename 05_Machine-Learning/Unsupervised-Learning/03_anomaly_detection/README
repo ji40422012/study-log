@@ -3,17 +3,37 @@
 
 ## Learning
 
+### Basic
 * IQR (Interquartile Range)
 * Z-score
 * Outlier Detection
 * Outlier Removal
 * Box Plot
 
-## Files
+### Additional Learning
+Isolation Forest
+Anomaly Score
+Multivariate Anomaly Detection
 
-* `03_anomaly_detection.py` : IQR / Z-score 기반 이상치 탐지
-* `03_anomaly_detection.md` : 개념 및 실습 정리
+## Structure
 
-## Additional Learning
+```text
+03_anomaly_detection/
+├── 01_Basic/
+│   ├── 03_Anomaly_Detection.py
+│   ├── 03_Anomaly_Detection.md
+│   ├── 03_income_boxplot.png
+│   └── 03_housing_boxplot.png
+│
+├── 02_Isolation_Forest/
+│   ├── 03_isolation_forest.py
+│   ├── 03_isolation_forest.md
+│   └── 03_isolation_forest.png
+│
+└── README.md
+```
 
-* Isolation Forest
+## Summary
+
+* **IQR / Z-score** : 통계적 기준을 이용한 이상치 탐지
+* **Isolation Forest** : 데이터가 고립되는 정도를 이용한 이상치 탐지
